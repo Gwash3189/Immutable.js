@@ -46,6 +46,7 @@ describe("Immutable", () => {
             var complex = new Complex();
             var copy = complex.Copy<Complex>();
             expect(copy).not.toEqual(complex);
+            debugger;
             expect(copy.Persons.length).toBe(3);
             expect(copy.Persons[0].Name).toBe(name);
         });

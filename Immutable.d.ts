@@ -4,6 +4,5 @@ interface IImmuatable {
 }
 declare class Immutable implements IImmuatable {
     public Freeze(): any;
-    private copy(obj);
-    public Copy<T>(): T;
+    public Copy<T>(obj?: IImmuatable): T;
 }
