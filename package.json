@@ -1,0 +1,23 @@
+{
+  "name": "immutable.js",
+  "version": "1.0.0",
+  "description": "Immutable Objects in JavaScript",
+  "main": "Immutable.js",
+  "scripts": {
+    "test": "testem"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gwash3189/Immutable.js.git"
+  },
+  "keywords": [
+    "Immutable",
+    "Objects",
+    "JavaScript"
+  ],
+  "author": "Adam Beck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gwash3189/Immutable.js/issues"
+  }
+}
