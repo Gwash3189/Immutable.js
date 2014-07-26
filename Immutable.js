@@ -1,14 +1,9 @@
 var Immutable = (function () {
-    function Immutable() {
-    }
-    Immutable.prototype.Freeze = function () {
-        return Object.freeze(this);
-    };
-
-    Immutable.prototype.copy = function (obj) {
+    
+    function privateCopy(obj) {
         var objectString = "object";
         var copy;
-        var toCopy = obj || toCopy;
+        var toCopy = obj || this;
         if (toCopy instanceof Array) {
             copy = [];
         } else {
@@ -19,15 +14,29 @@ var Immutable = (function () {
             if (typeof toCopy[keys[i]] !== objectString) {
                 copy[keys[i]] = toCopy[keys[i]];
             } else {
-                copy[keys[i]] = this.copy(toCopy[keys[i]]);
+                copy[keys[i]] = privateCopy(toCopy[keys[i]]);
             }
         }
         return copy;
+    }
+    
+    function Immutable() {}
+    
+    Immutable.prototype.Freeze = function () {
+        return Object.freeze(this);
     };
-
+    
     Immutable.prototype.Copy = function () {
-        return this.copy(this);
-        ;
+        return privateCopy.call(this,this);
     };
+    
     return Immutable;
 })();
+
+var namespace = this.window === undefined ?
+    (this.module !== undefined && this.module.exports !== undefined ? 
+        module.exports : 
+        undefined) :
+    window
+namespace.Immutable = Immutable;
+    
