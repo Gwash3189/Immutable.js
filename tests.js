@@ -50,4 +50,12 @@ describe("Immutable", function () {
             expect(copy.people[0].Name).toBe(name);
         });
     });
+    
+    describe("Constructor", function() {
+        it("Should take an object, and place all of it's properties on the new Immutable Object", function() {
+            var imm = new Immutable({a:"A"});
+            expect(imm.a).toBe("A");
+            expect(imm instanceof Immutable).toBe(true);
+        })
+    })
 });

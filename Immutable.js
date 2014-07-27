@@ -1,6 +1,13 @@
 var Immutable = (function () {
     
-    function privateCopy(obj) {
+    function _extend(source, obj) {
+        Object.keys(obj).forEach(function(value) {
+            source[value] = obj[value];
+        });
+        return source;
+    }
+    
+    function _copy(obj) {
         var objectString = "object";
         var copy;
         var toCopy = obj || this;
@@ -14,20 +21,24 @@ var Immutable = (function () {
             if (typeof toCopy[keys[i]] !== objectString) {
                 copy[keys[i]] = toCopy[keys[i]];
             } else {
-                copy[keys[i]] = privateCopy(toCopy[keys[i]]);
+                copy[keys[i]] = _copy(toCopy[keys[i]]);
             }
         }
         return copy;
     }
     
-    function Immutable() {}
+    function Immutable(propsObj) {
+        if(propsObj){
+            return _extend(this,propsObj);    
+        }
+    }
     
     Immutable.prototype.Freeze = function () {
         return Object.freeze(this);
     };
     
     Immutable.prototype.Copy = function () {
-        return privateCopy.call(this,this);
+        return _copy.call(this,this);
     };
     
     return Immutable;
