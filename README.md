@@ -42,6 +42,7 @@ The newly copied object is unfrozen by default.
 ###Set
 
 Set works the same as the consturctor function. It takes an object, and copies it's values to the Immutable object. This is mainly used for setting a large number of properties at once.
+
     thing.Set({prop: "stuff"});
     
 
