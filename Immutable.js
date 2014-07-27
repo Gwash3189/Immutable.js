@@ -1,8 +1,11 @@
 var Immutable = (function () {
-    
+    var immKeys = ['Copy','Freeze'];
     function _extend(source, obj) {
+        
         Object.keys(obj).forEach(function(value) {
-            source[value] = obj[value];
+            if(immKeys.indexOf(value) === -1){
+                source[value] = obj[value];    
+            }
         });
         return source;
     }
@@ -40,6 +43,13 @@ var Immutable = (function () {
     Immutable.prototype.Copy = function () {
         return _copy.call(this,this);
     };
+    
+    Immutable.prototype.Set = function(propsObj){
+        if(propsObj){
+            return _extend(this,propsObj);    
+        }
+        return this;
+    }
     
     return Immutable;
 })();

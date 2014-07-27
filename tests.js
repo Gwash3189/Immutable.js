@@ -56,6 +56,14 @@ describe("Immutable", function () {
             var imm = new Immutable({a:"A"});
             expect(imm.a).toBe("A");
             expect(imm instanceof Immutable).toBe(true);
-        })
+        });
+    });
+    
+    describe("Set", function() {
+        it("Should take an object, and place all of it's properties on the existing Immutable Object", function() {
+            var imm = new Immutable();
+            imm.Set({a:"A"});
+            expect(imm.a).toBe("A");
+        });
     })
 });
