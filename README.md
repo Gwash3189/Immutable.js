@@ -18,6 +18,7 @@ Useage
 objects instancatied from the Immutable function don't start off as immutable. Instead you need to call `Freeze` on the object first
 
 You can also provide an object to the consturctor. This objects properties will be copied over to the new immutable object. 
+
     var Person = function(name){
         this.Name = name;
     };
