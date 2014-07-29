@@ -1,7 +1,7 @@
 {
   "framework": "jasmine2",
   "src_files": [
-      "Immutable.js",
-      "tests.js"
+      "src/Immutable.js",
+      "tests/tests.js"
   ]
 }
