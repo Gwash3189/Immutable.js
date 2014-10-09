@@ -32,11 +32,11 @@ Freezes the object and does not allow any changes the the object. Once an object
 
     cantChangeMe.Freeze();
     cantChangeMe.Name = "Testing";
-    console.log(cantChangeMe.Name) //undefined
+    console.log(cantChangeMe.Name) //Hello World
 
 ###Copy
 
-In order to create a copy of the object, you can call thr `Copy` method. This provides a copy of the object and all of it's properties. 
+In order to create a copy of the object, you can call the `Copy` method. This provides a copy of the object and all of it's properties. 
     
     var thing = cantChangeMe.Copy();
     
